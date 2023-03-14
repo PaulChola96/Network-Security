@@ -136,21 +136,23 @@ while True:
 
 
     elif choice == "3":
-        # Get user input
-        plaintext = input("Enter the plaintext: ")
+        plaintext = input( "Enter the plaintext: ")
         print(f"Use this key: {plain_text_AESKey}")
-        key = input("Enter the key (must be 16, 24, or 32 bytes): ")
+        key = input( "Enter the key (must be 16, 24, or 32 bytes): ")
 
         # Convert plaintext to bytes
         plaintext_bytes = plaintext.encode('utf-8')
 
         # Create the cipher object and encrypt the plaintext
-        cipher = AES.new( key.encode('utf-8'''), AES.MODE_EAX)
+        cipher = AES.new(key.encode('utf-8'), AES.MODE_EAX)
         ciphertext, tag = cipher.encrypt_and_digest(plaintext_bytes)
 
         # Print the encrypted ciphertext and tag
         print("Ciphertext (encrypted message):", ciphertext)
         print("Tag (for verifying message integrity):", tag)
+
+        # Print the decrypted plaintext
+        print("Plaintext (decrypted message):", plaintext_bytes.decode('utf-8'))
 
 
 
