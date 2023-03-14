@@ -156,17 +156,41 @@ while True:
 
 
 
+
     elif choice == "4":
+        # If the user chose option 4:
         plaintext = input("Enter the plaintext: ")
-        print( f"Use this key: {plain_text_RSAKey}")
+        # Prompt the user to enter the plaintext and store it in a variable
+
+        # Note: it is unclear where plain_text_RSAKey comes from
+
+        print(f"Use this key: {plain_text_RSAKey}")
+
         key_size = int(input("Enter the key size (in bits): "))
+        # Prompt the user to enter the desired key size in bits and store it in a variable
+
         key = RSA.generate(key_size)
+        # Generate a new RSA key with the specified key size and store it in a variable
+
         public_key = key.publickey()
+        # Extract the public key from the generated key and store it in a variable
+
         private_key = key
+        # Store the private key (which is just the entire generated key) in a variable
+
         ciphertext = rsa_encrypt(plaintext, public_key)
+        # Use the rsa_encrypt() function to encrypt the plaintext using the public key, and store the resulting ciphertext in a variable
+
         print("Ciphertext:", ciphertext)
+        # Print the ciphertext to the console
+
         decrypted_plaintext = rsa_decrypt(ciphertext, private_key)
+
         print("Decrypted plaintext:", decrypted_plaintext)
+        # Print the decrypted plaintext to the console
+
+
+
 
 
 
