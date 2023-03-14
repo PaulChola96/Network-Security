@@ -145,7 +145,7 @@ while True:
         plaintext_bytes = plaintext.encode('utf-8')
 
         # Create the cipher object and encrypt the plaintext
-        cipher = AES.new( key.encode( 'utf-8'), AES.MODE_EAX)
+        cipher = AES.new( key.encode('utf-8'''), AES.MODE_EAX)
         ciphertext, tag = cipher.encrypt_and_digest(plaintext_bytes)
 
         # Print the encrypted ciphertext and tag
@@ -165,7 +165,6 @@ while True:
         print("Ciphertext:", ciphertext)
         decrypted_plaintext = rsa_decrypt(ciphertext, private_key)
         print("Decrypted plaintext:", decrypted_plaintext)
-
 
 
 
